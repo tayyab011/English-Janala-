@@ -21,43 +21,44 @@
 
 </head>
 <body>
-  <header>
-    <div class="navbar bg-base-100 shadow-sm ">
-  <div class="navbar-start ">
-    <div class="dropdown ">
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
+<header>
+  <div class="navbar bg-base-100 shadow-sm flex justify-between">
+    <!-- Logo (Left side) -->
+    <a class="flex justify-center items-center gap-1 text-xl">
+      <span class="text-lg font-bold">English</span>
+      <img src="./img/logo.png" alt="">
+      <span class="font-bangla font-semibold text-lg">জানালা</span>
+    </a>
+
+    <!-- Dropdown (Right side on small) -->
+    <div class="lg:hidden">
+      <div class="dropdown dropdown-end">
+        <div tabindex="0" role="button" class="btn btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+            viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </div>
+        <ul tabindex="0"
+          class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-6 p-4 shadow w-96">
+          <li><a><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+          <li><a><i class="fa-solid fa-book-open"></i> Learn</a></li>
+          <li><a><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
+        </ul>
       </div>
-      <ul
-        tabindex="0"
-        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-6 p-4 shadow w-96 ">
-        <li ><a ><i class="fa-solid fa-circle-question  "></i>FAQ</a></li>
-        <li ><a  ><i class="fa-solid fa-book-open "></i>Learn</a></li>
-        <li ><a ><i class="fa-solid fa-arrow-right-from-bracket "></i>Logout</a>
-        </li>
-        
+    </div>
+
+    <!-- Large device menu -->
+    <div class="navbar-end hidden lg:flex">
+      <ul class="menu menu-horizontal px-1 gap-3">
+        <li><a class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+        <li><a class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</a></li>
+        <li><a class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i> Logout</a></li>
       </ul>
     </div>
-    <a class="flex justify-center items-center gap-1 text-xl ">
-        <span class="text-lg font-bold">English</span>
-        <img src="./img/logo.png" alt="">
-        <span class="font-bangla font-semibold text-lg">জানালা</span>
-    </a>
   </div>
-  <div class="navbar-end hidden lg:flex">
-    <ul class="menu menu-horizontal px-1 gap-3">
-     <li><a  class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i>FAQ</a></li>
-        <li><a  class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i>Learn</a></li>
-        <li><a class="btn btn-outline btn-primary"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
-        </li>
-    </ul>
-    
-  </div>
-  
-</div>
-  </header>
-
-
+</header>
 
 
   <section class="flex md:flex-row flex-col-reverse justify-between items-center w-11/12 mx-auto py-5">
@@ -69,5 +70,20 @@
         <img src="./img/hero-student.png" alt="">
     </div>
   </section>
+
+
+<section class="my-12">
+    <h2 class="text-4xl font-bold mb-12 text-center"><span class="text-[#3FCDFF]">Let's</span> <span> Learn Vocabularies</span></h2>
+
+    <div id="level-container" class="flex gap-5 justify-center flex-wrap">
+
+    </div>
+</section>
+
+
+
+<section id="word-container" class="bg-gray-100 p-10  w-11/12 mx-auto my-10"></section>
+
+<script src="./script/index.js"></script>
 </body>
 </html>
