@@ -1,3 +1,4 @@
+//1
 const loadLessons =()=>{
 fetch("https://openapi.programming-hero.com/api/levels/all")
   .then((res) => res.json())
@@ -14,7 +15,7 @@ const manageSpinner =( status)=>{
    document.getElementById("word-container").classList.remove("hidden");
  }
 }
-
+//2
 const loadLevelWord =(id)=>{
     manageSpinner(true);
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
@@ -33,6 +34,7 @@ for (let i of actives) {
        
  
 }
+//3
 const loadWordDetail= async(id)=>{
 /*   manageSpinner(true) */
  const url = `https://openapi.programming-hero.com/api/word/${id}`;
@@ -41,10 +43,14 @@ const details = await res.json()
 displayWordDetails(details.data);
 /* manageSpinner(false); */
 }
+
+//3 child
  const createElements = (datas) => {
   const hElement = datas.map((e) => ` <span class="btn">${e}</span>`)
    return hElement.join(""); //join korle kono ekta array string e convert kore
  };
+
+ //3 child
 const displayWordDetails = (data)=>{
 
 const detailsContainer = document.getElementById("detailsContainer");
@@ -70,6 +76,7 @@ document.getElementById("my_modal_5").showModal()
  
 }
 
+//2 child
 const displayLevelsWords =(words)=>{
 const wordContainer =document.getElementById("word-container")
 wordContainer.innerHTML=""
@@ -103,7 +110,7 @@ words.map((e,i)=>{
 })
  manageSpinner(false);
 }
-
+//1 child
 const displayLessons=(lessons)=>{
 //1 get the container 
 const levelContainer =document.getElementById("level-container");
@@ -122,3 +129,22 @@ for (let lesson of lessons) {
 
 }
 loadLessons()
+
+document.getElementById("btn-search").addEventListener("click",(()=>{
+  const actives = document.getElementsByClassName("actives"); //ei line ta so active class dhore anbe
+  for (let i of actives) {
+    i.classList.remove("active");
+  } 
+  const  searchValue= document.getElementById("input-search").value.trim().toLowerCase();
+  console.log(searchValue);
+
+  fetch("https://openapi.programming-hero.com/api/words/all").then(res =>res.json()).then(data=> {
+   const allWords =  data.data;
+ 
+ const filterword = allWords.filter((e) =>
+   e.word.toLowerCase().includes(searchValue)
+ );
+ displayLevelsWords(filterword);
+  })
+  document.getElementById("input-search").value=""
+}))
