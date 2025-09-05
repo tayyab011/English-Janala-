@@ -1,3 +1,11 @@
+//voice func
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
+
+
 //1
 const loadLessons =()=>{
 fetch("https://openapi.programming-hero.com/api/levels/all")
@@ -101,7 +109,7 @@ words.map((e,i)=>{
  <div class="mt-8 flex justify-between items-center">
 <button onclick="loadWordDetail(${e.id})" class="btn bg-[#1A91FF10] rounded-4 border-0 hover:bg-[#1A91FF89]"><i class="fa-solid fa-circle-info "></i></button>
 
-  <button class="btn bg-[#1A91FF10] rounded-4 border-0 hover:bg-[#1A91FF89]"><i class="fa-solid fa-volume-high  "></i></button>
+  <button onclick="pronounceWord('${e.word}')" class="btn bg-[#1A91FF10] rounded-4 border-0 hover:bg-[#1A91FF89]"><i class="fa-solid fa-volume-high  "></i></button>
 
  </div>
   </div>
@@ -137,6 +145,10 @@ document.getElementById("btn-search").addEventListener("click",(()=>{
   } 
   const  searchValue= document.getElementById("input-search").value.trim().toLowerCase();
   console.log(searchValue);
+  if (!searchValue) {
+    alert("filll up search bar")
+    return
+  }
 
   fetch("https://openapi.programming-hero.com/api/words/all").then(res =>res.json()).then(data=> {
    const allWords =  data.data;
